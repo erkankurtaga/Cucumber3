@@ -32,7 +32,6 @@ public class Hooks {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy");
 
         if (scenario.isFailed()){
-            // klasöre
             TakesScreenshot screenshot = (TakesScreenshot) GWD.getDriver();
             File ekranDosyasi = screenshot.getScreenshotAs(OutputType.FILE);
 
@@ -49,7 +48,6 @@ public class Hooks {
 
         }
 
-        // ekran görüntüsü al senaryo hatalı ise
         GWD.quitDriver();
     }
 

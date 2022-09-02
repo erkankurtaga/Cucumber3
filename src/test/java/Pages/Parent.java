@@ -13,10 +13,10 @@ import java.time.Duration;
 public class Parent {
 
     public void sendKeysFunction(WebElement element, String value) {//3.Aşama
-        waitUntilVisible(element); // gözükene kadar bekle
-        scrollToElement(element); // elemente scroll yap
-        element.clear();   // temizle
-        element.sendKeys(value); // değeri gönder
+        waitUntilVisible(element);
+        scrollToElement(element);
+        element.clear();
+        element.sendKeys(value);
     }
 
     public void waitUntilVisible(WebElement element) {
@@ -31,9 +31,9 @@ public class Parent {
 
     public void clickFunction(WebElement element)
     {
-        waitUntilClickable(element); // tıklanabilir olana kadar bekle
-        scrollToElement(element); // elemente scroll yap
-        element.click(); // click yap
+        waitUntilClickable(element);
+        scrollToElement(element);
+        element.click();
     }
 
     public void waitUntilClickable(WebElement element) {
@@ -43,7 +43,7 @@ public class Parent {
 
     public void verifyContainsText(WebElement element, String text)
     {
-        waitUntilVisible(element); // gözükene kadar bekle
+        waitUntilVisible(element);
         Assert.assertTrue(element.getText().toLowerCase().contains(text.toLowerCase()));
     }
 
