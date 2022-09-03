@@ -11,61 +11,61 @@ public class LeftNav extends Parent{
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
-    @FindBy(xpath = "(//span[text()=\"Setup\"])[1]")
+    @FindBy(xpath = "(//span[text()='Setup'])[1]")
     private WebElement setup;
 
-    @FindBy(xpath = "//span[text()=\"Parameters\"]")
+    @FindBy(xpath = "//span[text()='Parameters']")
     private WebElement parameters;
 
-    @FindBy(xpath = "(//span[text()=\"Nationalities\"])[1]")
+    @FindBy(xpath = "(//span[text()='Nationalities'])[1]")
     private WebElement nationalities;
 
-    @FindBy(xpath = "(//span[text()=\"Discounts\"])[1]")
+    @FindBy(xpath = "(//span[text()='Discounts'])[1]")
     private WebElement discounts;
 
-    @FindBy(xpath = "//span[text()=\"Grade Levels\"]")
+    @FindBy(xpath = "//span[text()='Grade Levels']")
     private WebElement gradeLevels;
 
-    @FindBy(xpath = "(//span[text()=\"Document Types\"])[1]")
+    @FindBy(xpath = "(//span[text()='Document Types'])[1]")
     private WebElement documentTypes;
 
-    @FindBy(xpath = "(//span[text()=\"Bank Accounts\"])[1]")
+    @FindBy(xpath = "(//span[text()='Bank Accounts'])[1]")
     private WebElement bankAccounts;
 
-    @FindBy(xpath = "(//span[text()=\"Fields\"])[1]")
+    @FindBy(xpath = "(//span[text()='Fields'])[1]")
     private WebElement fields;
 
-    @FindBy(xpath = "//span[text()=\"School Setup\"]")
+    @FindBy(xpath = "//span[text()='School Setup']")
     private WebElement schoolSetup;
 
-    @FindBy(xpath = "//span[text()=\"Locations\"]")
+    @FindBy(xpath = "//span[text()='Locations']")
     private WebElement locations;
 
-    @FindBy(xpath = "//span[text()=\"Departments\"]")
+    @FindBy(xpath = "//span[text()='Departments']")
     private WebElement departments;
 
-    @FindBy(xpath = "//span[text()=\"Human Resources\"]")
+    @FindBy(xpath = "//span[text()='Human Resources']")
     private WebElement humanResources;
 
-    @FindBy(xpath = "(//span[text()=\"Setup\"])[3]")
+    @FindBy(xpath = "(//span[text()='Setup'])[3]")
     private WebElement humanSetup;
 
-    @FindBy(xpath = "//span[text()=\"Positions\"]")
+    @FindBy(xpath = "//span[text()='Positions']")
     private WebElement positions;
 
-    @FindBy(xpath = "(//span[text()=\"Attestations\"])[1]")
+    @FindBy(xpath = "(//span[text()='Attestations'])[1]")
     private WebElement attestations;
 
-    @FindBy(xpath = "(//span[text()=\"Position Categories\"])[1]")
+    @FindBy(xpath = "(//span[text()='Position Categories'])[1]")
     private WebElement positionCategories;
 
-    @FindBy(xpath = "//span[text()=\"Education\"]")
+    @FindBy(xpath = "//span[text()='Education']")
     private WebElement education;
 
-    @FindBy(xpath = "(//span[text()=\"Setup\"])[4]")
+    @FindBy(xpath = "(//span[text()='Setup'])[4]")
     private WebElement educationSetup;
 
-    @FindBy(xpath = "(//span[text()=\"Subject Categories\"])[1]")
+    @FindBy(xpath = "(//span[text()='Subject Categories'])[1]")
     private WebElement subjectCategories;
 
     WebElement element;

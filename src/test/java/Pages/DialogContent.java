@@ -22,13 +22,13 @@ public class DialogContent extends Parent{
     @FindBy(xpath="//ms-search-button//button")
     private WebElement searchButton;
 
-    @FindBy(xpath="//button[@matbadgecolor=\"accent\"]")
+    @FindBy(xpath="//button[@matbadgecolor='accent']")
     private WebElement addButton;
 
-    @FindBy(xpath="//ms-text-field[@formcontrolname=\"name\"]/input")
+    @FindBy(xpath="//ms-text-field[@formcontrolname='name']/input")
     private WebElement nameInput;
 
-    @FindBy(xpath="//ms-text-field[@formcontrolname=\"shortName\"]/input")
+    @FindBy(xpath="//ms-text-field[@formcontrolname='shortName']/input")
     private WebElement shortNameInput;
 
     @FindBy(xpath="//ms-delete-button/button")
@@ -46,7 +46,7 @@ public class DialogContent extends Parent{
         switch (strElement){
             case "username" : element = username; break;
             case "password" : element = password; break;
-            case "name"     : element = nameInput; break;
+            case "name" : element = nameInput; break;
             case "shortName": element = shortNameInput; break;
         }
 
@@ -55,11 +55,11 @@ public class DialogContent extends Parent{
 
     public void findAndClick(String strElement){
         switch (strElement){
-            case "login"  : element = loginButton; break;
-            case "acceptCokkies" : element = acceptCokkiesButton; break;
+            case "login" : element = loginButton; break;
+            case "accept-cokkies" : element = acceptCokkiesButton; break;
             case "search" : element = searchButton; break;
-            case "add"    : element = addButton; break;
-            case "edit"   : element = editButton; break;
+            case "add" : element = addButton; break;
+            case "edit" : element = editButton; break;
             case "delete" : element = deleteButton; break;
         }
 
