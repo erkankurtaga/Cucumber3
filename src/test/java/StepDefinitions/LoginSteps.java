@@ -20,7 +20,7 @@ public class LoginSteps {
     public void enterUsernameAndPasswordAndClickLoginButton() {
         dc.findAndSend("username","richfield.edu");
         dc.findAndSend("password","Richfield2020!");
-        dc.findAndClick("loginButton");
+        dc.findAndClick("login");
     }
 
     @Then("User should login successfuly")
