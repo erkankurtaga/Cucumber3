@@ -9,6 +9,7 @@ Feature: Add-Edit-Delete Document Types under Parameters Setup Feature
       | parameters    |
       | document-types |
 
+  @Regression
   Scenario Outline: Create, Edit, Delete a Document Type
     And Click on the element in the Dialog
       | add |
