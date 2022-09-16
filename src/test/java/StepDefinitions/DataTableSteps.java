@@ -51,10 +51,6 @@ public class DataTableSteps {
     public void userEditItemFromDialog(DataTable elements) {
         List<List<String>> elementList = elements.asLists(String.class);
 
-        for (int i = 0; i < elementList.size(); i++) {
-            System.out.println(i+"=> 0="+elementList.get(i).get(0) +" ; 1="+ elementList.get(i).get(1));
-        }
-
         dc.searchAndEdit(elementList.get(0).get(1));
 
         for (int i = 1; i < elementList.size(); i++) {
