@@ -56,7 +56,7 @@ public class Parent {
         Assert.assertTrue(element.getText().toLowerCase().contains(text.toLowerCase()));
     }
 
-    public void waitUntilLoading() {
+    public static void waitUntilLoading() {
         WebDriverWait wait=new WebDriverWait(GWD.driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("fuse-progress-bar > *"), 0));
     }

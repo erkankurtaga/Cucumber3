@@ -2,13 +2,12 @@ package StepDefinitions;
 
 import Pages.DialogContent;
 import Pages.LeftNav;
+import Utilities.GWD;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
-
 import java.util.List;
 
-public class CUC_03_DocumentTypesSteps {
-
+public class DataTableSteps {
     LeftNav ln = new LeftNav();
     DialogContent dc = new DialogContent();
     @And("Click on the element in the left Nav")
@@ -23,6 +22,8 @@ public class CUC_03_DocumentTypesSteps {
     @And("Click on the element in the Dialog")
     public void clickOnTheElementInTheDialog(DataTable elements) {
         List<String> elementList = elements.asList(String.class);
+
+        GWD.Bekle(2);
 
         for(int i=0; i < elementList.size();i++) {
             dc.findAndClick(elementList.get(i));
