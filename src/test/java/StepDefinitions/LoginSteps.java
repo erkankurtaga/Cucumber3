@@ -20,7 +20,7 @@ public class LoginSteps {
         dc.findAndSend("username","richfield.edu");
         dc.findAndSend("password","Richfield2020!");
         dc.findAndClick("login");
-        dc.findAndClick("acceptCokkiesButton");
+        dc.findAndClick("accept-cookies");
 
     }
 

@@ -5,6 +5,7 @@ Feature:  School Locations Functionality
     When Enter username and password and click login button
     Then User should login successfuly
 
+  @Regression
   Scenario Outline: Add, Edit and Delete School Locations
 
     And Click on the element in the left Nav
@@ -12,15 +13,15 @@ Feature:  School Locations Functionality
       | school-setup |
       | locations    |
 
-    And Click on the element in the Dialog Content
+    And Click on the element in the Dialog
       | add |
 
-    And User sending the keys in Dialog Content
+    And User sending the keys in Dialog content
       | name          | <name>      |
       | shortName     | <shortName> |
       | capacityInput | <capacity>  |
 
-    And Click on the element in the Dialog Content
+    And Click on the element in the Dialog
       | locationType |
       | <locOption>  |
       | <deActive>   |
@@ -28,15 +29,15 @@ Feature:  School Locations Functionality
 
     And Success message should be displayed
 
-    And Click on the element in the Dialog Content
+    And Click on the element in the Dialog
       | edit |
 
-    And User sending the keys in Dialog Content
+    And User sending the keys in Dialog content
       | name          | <newName>      |
       | shortName     | <newShortName> |
       | capacityInput | <newCapacity>  |
 
-    And Click on the element in the Dialog Content
+    And Click on the element in the Dialog
       | locationType   |
       | <newLocOption> |
       | <NewDeActive>  |
@@ -44,7 +45,7 @@ Feature:  School Locations Functionality
 
     And Success message should be displayed
 
-    And Delete on the element in the Dialog Content
+    And Click on the element in the Dialog
       | delete     |
       | deleteLast |
 
