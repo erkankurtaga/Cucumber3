@@ -1,9 +1,15 @@
 package Pages;
 
 import Utilities.GWD;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.List;
 
 public class DialogContent extends Parent{
 
@@ -37,48 +43,44 @@ public class DialogContent extends Parent{
     @FindBy(xpath="//ms-edit-button/button")
     private WebElement editButton;
 
-    @FindBy(xpath = "//ms-save-button//button")
+    @FindBy(xpath = "(//button[@class='consent-give'])[1]")
+    private WebElement acceptCookiesButton;
+    @FindBy(xpath="//mat-select[@formcontrolname='attachmentStages']")
+    private WebElement stages;
+
+    @FindBy(xpath="//mat-option")
+    private List<WebElement> stageItem;
+
+    @FindBy(xpath="//mat-option//span")
+    private List<WebElement> stageItemText;
+    @FindBy(xpath="//textarea[@formcontrolname='description']")
+    private WebElement description;
+
+    @FindBy(xpath = "//ms-text-field[@placeholder='GENERAL.FIELD.NAME']")
+    private WebElement searchName;
+
+    @FindBy(xpath = "(//mat-Select) [1]")
+    private WebElement searchStage;
+
+    @FindBy(xpath = "//button//span[contains(text(),'Delete')]")
+    private WebElement deleteButtonOk;
+
+    @FindBy(xpath="//ms-save-button//button")
     private WebElement saveButton;
-
-    @FindBy(xpath = "//button[@type='submit']")
-    private WebElement deleteLast;
-
-    @FindBy(xpath = "//div[@id='cconsent-bar']//button")
-    private WebElement acceptCokkiesButton;
-
-    @FindBy(xpath = "//ms-integer-field[@formcontrolname='capacity']//input")
-    private WebElement capacityInput;
 
     @FindBy(xpath = "//div[contains(text(),'successfully')]")
     private WebElement successMessage;
 
-    @FindBy(xpath = "(//mat-select[@role='combobox']/div)[3]")
-    private WebElement locationType;
-
-    @FindBy(xpath = "(//mat-option[@role='option']/span)[1]")
-    private WebElement Classroom;
-
-    @FindBy(xpath = "(//mat-option[@role='option']/span)[2]")
-    private WebElement Laboratory;
-
-    @FindBy(xpath = "(//mat-option[@role='option']/span)[3]")
-    private WebElement Other;
-
-    @FindBy(xpath = "(//mat-slide-toggle[@formcontrolname='active']/label/span)[1]")
-    private WebElement deActive;
-
-    @FindBy(xpath = "(//tbody[@role='rowgroup']/tr//td)[2]")
-    private WebElement nameList;
-
-
     WebElement element;
+    List<WebElement> elements;
     public void findAndSend(String strElement, String value){
         switch (strElement){
             case "username" : element = username; break;
             case "password" : element = password; break;
             case "name" : element = nameInput; break;
             case "shortName": element = shortNameInput; break;
-            case "capacityInput": element = capacityInput; break;
+            case "description" : element = description; break;
+            case "searchName" : element = searchName; break;
         }
 
         sendKeysFunction(element, value);
@@ -87,31 +89,77 @@ public class DialogContent extends Parent{
     public void findAndClick(String strElement){
         switch (strElement){
             case "login" : element = loginButton; break;
-            case "acceptCokkiesButton" : element = acceptCokkiesButton; break;
+            case "accept-cookies" : element = acceptCookiesButton; break;
             case "search" : element = searchButton; break;
             case "add" : element = addButton; break;
             case "edit" : element = editButton; break;
             case "delete" : element = deleteButton; break;
-            case "locationType" : element = locationType; break;
-            case "Classroom" : element = Classroom; break;
-            case "Laboratory" : element = Laboratory; break;
-            case "Other" : element = Other; break;
-            case "saveButton" : element = saveButton; break;
-            case "deActive" : element = deActive; break;
-            case "deleteLast" : element= deleteLast;break;
+            case "stages" : element = stages; break;
+            case "deleteOk" : element = deleteButtonOk; break;
+            case "save" : element = saveButton; break;
         }
 
         clickFunction(element);
     }
 
+    public void findAndSelect(String strElement, String value) {
+        switch (strElement) {
+            case "stages-select":
+                findAndClick("stages");
+
+                for (int i = 0; i < stageItemText.size(); i++) {
+                    if(stageItemText.get(i).getText().equals(value)){
+                        clickFunction(stageItem.get(i));
+                        sendKeyBoard("ESC");
+                        break;
+                    }
+                }
+
+                break;
+        }
+    }
+
     public void findAndContainsText(String strElement, String text){
         switch (strElement){
-            case "dashboard" : element =dashboard; break;
-            case "successMessage": element = successMessage; break;
+            case "dashboard" : element = dashboard; break;
+            case "success" : element = successMessage; break;
         }
 
         verifyContainsText(element,text);
     }
+
+    public void searchAndEdit(String searchText){
+        scrollUp();
+        scrollToElement(searchName);
+        findAndSend("searchName", searchText);
+        findAndClick("search");
+
+        waitUntilLoading();
+
+        findAndClick("edit");
+    }
+
+    public void searchAndDelete(String searchText){
+        scrollUp();
+        scrollToElement(searchName);
+        findAndSend("searchName", searchText);
+        findAndClick("search");
+
+        waitUntilLoading();
+
+        findAndClick("delete");
+        findAndClick("deleteOk");
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 }
