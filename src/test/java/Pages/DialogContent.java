@@ -56,7 +56,7 @@ public class DialogContent extends Parent{
     @FindBy(xpath="//textarea[@formcontrolname='description']")
     private WebElement description;
 
-    @FindBy(xpath = "//ms-text-field[@placeholder='GENERAL.FIELD.NAME']")
+    @FindBy(xpath = "//ms-text-field[contains(@placeholder,'NAME')]//input)")
     private WebElement searchName;
 
     @FindBy(xpath = "(//mat-Select) [1]")
@@ -125,7 +125,6 @@ public class DialogContent extends Parent{
             case "Classroom" : element = Classroom; break;
             case "Laboratory" : element = Laboratory; break;
             case "Other" : element = Other; break;
-            case "saveButton" : element = saveButton; break;
             case "deActive" : element = deActive; break;
             case "deleteLast" : element= deleteLast;break;
         }
