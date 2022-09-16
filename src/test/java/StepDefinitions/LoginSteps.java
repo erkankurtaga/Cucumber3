@@ -20,11 +20,14 @@ public class LoginSteps {
         dc.findAndSend("username","richfield.edu");
         dc.findAndSend("password","Richfield2020!");
         dc.findAndClick("login");
+        dc.findAndClick("acceptCokkiesButton");
+
     }
 
     @Then("User should login successfuly")
     public void userShouldLoginSuccessfuly() {
         dc.findAndContainsText("dashboard","Dashboard");
-        dc.findAndClick("accept-cookies");
+
+
     }
 }
