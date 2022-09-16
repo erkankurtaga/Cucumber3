@@ -25,7 +25,7 @@ Feature:  School Locations Functionality
       | locationType |
       | <locOption>  |
       | <deActive>   |
-      | saveButton   |
+      | save         |
 
     And Success message should be displayed
 
@@ -41,7 +41,7 @@ Feature:  School Locations Functionality
       | locationType   |
       | <newLocOption> |
       | <NewDeActive>  |
-      | saveButton     |
+      | save           |
 
     And Success message should be displayed
 
