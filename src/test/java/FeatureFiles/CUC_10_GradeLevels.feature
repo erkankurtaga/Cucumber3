@@ -5,7 +5,7 @@ Feature:CUC-10 Grade Levels Functionality
     When Enter username and password and click login button
     Then User should login successfuly
 
-
+  @Regression
   Scenario:Add Grade Levels
     When Click on the element in the left Nav
       | setup       |
