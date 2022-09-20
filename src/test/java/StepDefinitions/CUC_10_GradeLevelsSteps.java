@@ -34,14 +34,14 @@ public class CUC_10_GradeLevelsSteps {
     @Then("user add Grade Levels")
     public void userAddGradeLevels() {
         waitUntilListLoading();
+        GWD.Bekle(2);
         dc.findAndClick("add");
-        gc.waitPopUp();
         dc.findAndSend("name", istenenName);
         dc.findAndSend("shortName", randomShortName);
         gc.findAndSend("order", randomCode);
         gc.findAndClick("active");
         gc.findAndClick("saveButton");
-       // dc.waitUntilLoading();
+        dc.waitUntilLoading();
     }
 
     String randomNewName = RandomStringUtils.randomAlphabetic(8);
@@ -49,7 +49,8 @@ public class CUC_10_GradeLevelsSteps {
     String randomNewCode = RandomStringUtils.randomNumeric(2);
     @Then("user edit Grade Levels")
     public void userEditGradeLevels() {
-        waitUntilListLoading();
+        waitUntilElementListed(istenenName);
+        GWD.Bekle(2);
         List<WebElement> listeNames = GWD.getDriver().findElements(By.xpath("//tbody[@role='rowgroup']/tr"));
         for (WebElement e : listeNames)
             if ((e.getText()).contains(istenenName)) {
@@ -60,13 +61,13 @@ public class CUC_10_GradeLevelsSteps {
                 gc.findAndSend("order", randomNewCode);
                 gc.findAndClick("active");
                 gc.findAndClick("saveButton");
-          //  dc.waitUntilLoading();
+            dc.waitUntilLoading();
             }
     }
 
     @Then("user delete Grade Levels")
     public void userDeleteGradeLevels() {
-        waitUntilElementListed(istenenName);
+        waitUntilElementListed(istenenNewName);
         List<WebElement> listNewNames = GWD.getDriver().findElements(By.xpath("//tbody[@role='rowgroup']/tr"));
         for (WebElement e : listNewNames){
            if ((e.getText()).contains(istenenNewName)) {
@@ -80,10 +81,7 @@ public class CUC_10_GradeLevelsSteps {
           }
         }
     }
-    @And("user should see successfully message")
-    public void userShouldSeeSuccessfullyMessage() {
-        gc.findAndContainsText("successMessage", "successfully");
-    }
+
 
     private void waitUntilElementListed(String name) {
         WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(30));

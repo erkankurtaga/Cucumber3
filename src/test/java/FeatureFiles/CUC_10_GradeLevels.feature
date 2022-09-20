@@ -10,14 +10,13 @@ Feature:CUC-10 Grade Levels Functionality
     When Click on the element in the left Nav
       | setup       |
       | parameters  |
-      | gradeLevels |
+      | grade-levels |
 
     Then user add Grade Levels
     And Success message should be displayed
 
     Then user edit Grade Levels
-    And user should see successfully message
+    And Success message should be displayed
 
     Then user delete Grade Levels
-    And user should see successfully message
-
+    And Success message should be displayed
