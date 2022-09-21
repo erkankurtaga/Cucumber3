@@ -1,7 +1,10 @@
 package Pages;
 
 import Utilities.GWD;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -24,8 +27,8 @@ public class DialogContent extends Parent{
     @FindBy(xpath="//ms-search-button//button")
     private WebElement searchButton;
 
-    @FindBy(xpath="//button[@matbadgecolor='accent']")
-    private WebElement addButton;
+    @FindBy(xpath="//ms-add-button[@class=\"ng-star-inserted\"]//button")
+     private WebElement addButton;
 
     @FindBy(xpath="//ms-text-field[@formcontrolname='name']/input")
     private WebElement nameInput;
@@ -67,12 +70,45 @@ public class DialogContent extends Parent{
     
     @FindBy(xpath = "//ms-integer-field[@formcontrolname='capacity']//input")
     private WebElement capacityInput;
+    
+    @FindBy(xpath = "//ms-masked-text-field[@formcontrolname=\"iban\"]//input")
+    private WebElement ibanInput;
+
+
+    @FindBy(xpath = "//ms-text-field[@formcontrolname=\"integrationCode\"]//input")
+    private WebElement integrationCode;
+
+    @FindBy(xpath = "//mat-slide-toggle[@formcontrolname=\"active\"]")
+    private WebElement active;    
 
     @FindBy(xpath="//ms-save-button//button")
     private WebElement saveButton;
 
     @FindBy(xpath = "//div[contains(text(),'successfully')]")
     private WebElement successMessage;
+    
+    @FindBy(xpath = "//mat-select[@formcontrolname=\"currency\"]")
+    private WebElement currencySelect;
+
+    @FindBy(xpath = "(//mat-option[@role=\"option\"]//span)[1]")
+    private WebElement currencyKZT;    
+    
+    @FindBy(xpath = "(//mat-option[@role=\"option\"]//span)[2]")
+    private WebElement currencyUSD;
+
+
+    @FindBy(xpath = "(//mat-option[@role=\"option\"]//span)[3]")
+    private WebElement currencyEUR;
+
+
+    @FindBy(xpath = "(//mat-option[@role=\"option\"]//span)[4]")
+    private WebElement currencyTRY;
+
+    @FindBy(xpath = "(//mat-option[@role=\"option\"]//span)[5]")
+    private WebElement currencyPKR;
+
+    @FindBy(xpath = "//button[@type=\"submit\"]")
+    private WebElement deleteButtonTwo;    
 
     @FindBy(xpath = "(//mat-select[@role='combobox']/div)[3]")
     private WebElement locationType;
@@ -105,6 +141,8 @@ public class DialogContent extends Parent{
             case "capacityInput": element = capacityInput; break;
             case "description" : element = description; break;
             case "searchName" : element = searchName; break;
+            case "ibanInput": element = ibanInput; break;
+            case "integrationCode": element = integrationCode; break;            
         }
 
         sendKeysFunction(element, value);
@@ -127,6 +165,13 @@ public class DialogContent extends Parent{
             case "Other" : element = Other; break;
             case "deActive" : element = deActive; break;
             case "deleteLast" : element= deleteLast;break;
+            case "currencySelect" : element = currencySelect; break;
+            case "currencyKZT" : element = currencyKZT; break;
+            case "currencyUSD" : element = currencyUSD; break;
+            case "currencyEUR" : element = currencyEUR; break;
+            case "currencyTRY" : element = currencyTRY; break;
+            case "currencyPKR" : element = currencyPKR; break;
+            case "deleteButtonTwo" : element = deleteButtonTwo; break;            
         }
 
         clickFunction(element);
@@ -153,7 +198,6 @@ public class DialogContent extends Parent{
         switch (strElement){
             case "dashboard" : element = dashboard; break;
             case "success" : element = successMessage; break;
-            case "successMessage": element = successMessage; break;            
         }
 
         verifyContainsText(element,text);
